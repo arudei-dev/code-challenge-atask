@@ -1,10 +1,11 @@
-import { CardWithDeco } from "@/components/ui/card";
+import { Suspense } from "react";
+
 import { CopyFooter } from "@/components/CopyFooter";
+import { CardWithDeco } from "@/components/ui/card";
+import { Spinner } from "@/components/ui/spinner";
 
 import { GhSearchBox } from "./_GhSearchBox";
 import { GhUserList } from "./_GhUserList";
-import { Suspense } from "react";
-import { Spinner } from "@/components/ui/spinner";
 
 export default function Home() {
   return (
