@@ -3,6 +3,8 @@ import { CopyFooter } from "@/components/CopyFooter";
 
 import { GhSearchBox } from "./_GhSearchBox";
 import { GhUserList } from "./_GhUserList";
+import { Suspense } from "react";
+import { Spinner } from "@/components/ui/spinner";
 
 export default function Home() {
   return (
@@ -11,8 +13,10 @@ export default function Home() {
         className="w-full max-w-[500px]"
         classNameContent="flex flex-col"
       >
-        <GhSearchBox />
-        <GhUserList />
+        <Suspense fallback={<Spinner />}>
+          <GhSearchBox />
+          <GhUserList />
+        </Suspense>
       </CardWithDeco>
 
       <CopyFooter />
