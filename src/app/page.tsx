@@ -1,5 +1,8 @@
-import { CardWithDeco } from "@/components/ui/card";
+import { Suspense } from "react";
+
 import { CopyFooter } from "@/components/CopyFooter";
+import { CardWithDeco } from "@/components/ui/card";
+import { Spinner } from "@/components/ui/spinner";
 
 import { GhSearchBox } from "./_GhSearchBox";
 import { GhUserList } from "./_GhUserList";
@@ -11,8 +14,10 @@ export default function Home() {
         className="w-full max-w-[500px]"
         classNameContent="flex flex-col"
       >
-        <GhSearchBox />
-        <GhUserList />
+        <Suspense fallback={<Spinner />}>
+          <GhSearchBox />
+          <GhUserList />
+        </Suspense>
       </CardWithDeco>
 
       <CopyFooter />
