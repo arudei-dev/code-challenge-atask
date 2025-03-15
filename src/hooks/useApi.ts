@@ -39,7 +39,13 @@ export default function useApi<Data = unknown>(
       signal: refAbort.current?.signal,
       headers,
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        return response.json();
+      })
       .then((data) => {
         setResponse({ status: "done", data });
         refAbort.current = null;
